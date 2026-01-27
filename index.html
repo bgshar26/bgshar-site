@@ -362,9 +362,13 @@
         </div>
 
         <!-- Netlify Forms: works automatically when deployed -->
-        <form class="form" name="service-request" method="POST" action="https://formspree.io/f/REPLACE_ME">
-          <!-- Form backend: replace the action URL with your Formspree endpoint -->
-<div class="field">
+        <form class="form" name="service-request" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="service-request" />
+          <p class="hidden">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="field">
             <label for="name">Name</label>
             <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
           </div>
@@ -423,7 +427,7 @@
           <div class="field">
             <label for="photo">Photo (optional)</label>
             <input id="photo" name="photo" type="file" accept="image/*" />
-            <p class="hint">File uploads may require a paid form plan. If uploads don’t work, just text the photo.</p>
+            <p class="hint">Netlify form uploads may require a paid plan. If uploads don’t work, just text the photo.</p>
           </div>
 
           <button class="btn btn-primary btn-lg" type="submit">Send Request</button>
